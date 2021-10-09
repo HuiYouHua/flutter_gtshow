@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gtshow/home/home.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'modules/home/home.dart';
+import 'modules/live_room/live_room.dart';
+import 'modules/login/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +14,8 @@ class MyApp extends StatelessWidget {
   Route<dynamic> _getRoute(RouteSettings settings) {
     Map<String, WidgetBuilder> routes = {
       "/": (context) => GTHomePage(),
+      "/login": (context) => GTLoginPage(),
+      "/liveRoom": (context) => GTLiveRoomPage(),
     };
 
     var widget = routes[settings.name];
@@ -34,7 +39,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage(title: 'Flutter Demo Home Page'),
+//        home: MyHomePage(title: 'Flutter Demo Home Page'),
         onGenerateRoute: _getRoute,
       ),
     );
