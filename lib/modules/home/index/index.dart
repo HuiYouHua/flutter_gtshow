@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gtshow/commom/dao/home_dao.dart';
 import 'package:flutter_gtshow/commom/style/colors_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+import 'jingxuan_page.dart';
 
 /// Created by 华惠友
 /// on 2021/9/30 2:59 PM
@@ -64,16 +67,19 @@ class _GTIndexPageState extends State<GTIndexPage>
       //创建Tab页
       children: tabs
           .asMap()
-          .map((i, e) {
-            return MapEntry(
-                i,
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(e, textScaleFactor: 1),
-                ));
-          })
-          .values
-          .toList(),
+          .map((i, e)
+    {
+      if (i == 0) {
+        return MapEntry(0, JingxunaPageWidget());
+      } else {
+        return MapEntry(
+      i,
+      Container(
+        alignment: Alignment.center,
+        child: Text(e, textScaleFactor: 1),)
+        );
+      }
+      }).values.toList(),
     );
     return tabBarBodyView;
   }
