@@ -1,0 +1,29 @@
+PODS:
+  - FDFullscreenPopGesture (1.1)
+  - Flutter (1.0.0)
+  - flutter_boost (0.0.2):
+    - Flutter
+
+DEPENDENCIES:
+  - FDFullscreenPopGesture (~> 1.1)
+  - Flutter (from `Flutter`)
+  - flutter_boost (from `.symlinks/plugins/flutter_boost/ios`)
+
+SPEC REPOS:
+  trunk:
+    - FDFullscreenPopGesture
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_boost:
+    :path: ".symlinks/plugins/flutter_boost/ios"
+
+SPEC CHECKSUMS:
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_boost: a7cfa776b75329d5e7d101d0cd33e75042bcde69
+
+PODFILE CHECKSUM: 1e68876b29ca13bc10e5389b842188845f98d2a3
+
+COCOAPODS: 1.9.3
