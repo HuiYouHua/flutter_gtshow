@@ -66,13 +66,14 @@ class _JingxunaPageState extends State<JingxunaPageWidget> {
             right: 0,
             bottom: 0,
           ),
-          if (item.corner_v6 != null) Positioned(
-            child: topCardWidget(item),
-            height: 22.w,
-            width: 200.w,
-            left: 0,
-            top: 8.w,
-          ),
+          if (item.corner_v6 != null)
+            Positioned(
+              child: topCardWidget(item),
+              height: 22.w,
+              width: 200.w,
+              left: 0,
+              top: 8.w,
+            ),
           Positioned(
             child: hotWidget(item.heat.toString()),
             top: 8.w,
@@ -103,7 +104,7 @@ class _JingxunaPageState extends State<JingxunaPageWidget> {
                   bottom: 0,
                 ),
                 Container(
-                    margin: EdgeInsets.only(left: 8.w, bottom: 8.w),
+                    margin: EdgeInsets.only(left: 8.w, bottom: 8.w, right: 8.w),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,6 +115,8 @@ class _JingxunaPageState extends State<JingxunaPageWidget> {
                                   color: Colors.white.withAlpha(170),
                                   fontSize: 13)),
                         Text(item.nickName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: GTTextStyle.mediumTextStyle(
                                 color: Colors.white, fontSize: 14))
                       ],
@@ -127,71 +130,51 @@ class _JingxunaPageState extends State<JingxunaPageWidget> {
   }
 
   Widget topCardWidget(RoomData roomData) {
-    return
-
-
-//          Image.network(roomData.corner_v6.left_img),
-          Container(
-            child: Stack(
-              children: [
-
-                Positioned(
-                  child: Image.network(roomData.corner_v6.left_img, width: 8, fit: BoxFit.fill,),
-                  left: 0,
-                  top: 0,
-                  bottom: 0),
-                Positioned(
-                  child: Image.network(roomData.corner_v6.middle_img, width: 70, fit: BoxFit.fill,),
-                  left: 8,
-                  top: 0,
-                  bottom: 0,),
-                Positioned(
-                  child: Image.network(roomData.corner_v6.right_img, width: 8, fit: BoxFit.fill,),
-                  left: 78,
-                  top: 0,
-                  bottom: 0,),
-//                Positioned(
-//                  child: AsperctRaioImage.network(roomData.corner_v6.middle_img,
-//                      builder: (context, snapshot, url) {
-//                        return Column(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: <Widget>[
-////
-////                            Text('大小--${snapshot.data.width.toDouble()}x${snapshot
-////                                .data.height.toDouble()}',
-////                              style: TextStyle(fontSize: 17.0),),
-//                            Container(
-//                              width: snapshot.data.width.toDouble() / 5,
-//                              height: snapshot.data.height.toDouble() / 5,
-//                              decoration: BoxDecoration(
-//                                image: DecorationImage(
-//                                    image: NetworkImage(url), fit: BoxFit.cover),
-//                              ),
-//                            )
-//                          ],
-//                        );
-//                      }),
-//                  left: 0,
-//                  top: 0,
-//                  right: 0,
-//                  bottom: 0,),
-//                Image.network(roomData.corner_v6.right_img),
-//
-//
-                Positioned(child: Text(roomData.corner_v6.text, style: GTTextStyle.regularTextStyle(
-    color: Colors.white,
-    fontSize: 13), textAlign: TextAlign.center),
-                  left: 8,
-                  top: 0,
-                  width: 70,
-                  bottom: 0,),
-              ],
+    return Container(
+      child: Stack(
+        children: [
+          Positioned(
+              child: Image.network(
+                roomData.corner_v6.left_img,
+                width: 8,
+                fit: BoxFit.fill,
+              ),
+              left: 0,
+              top: 0,
+              bottom: 0),
+          Positioned(
+            child: Image.network(
+              roomData.corner_v6.middle_img,
+              width: 70,
+              fit: BoxFit.fill,
             ),
-
-      )
-
-
-    ;
+            left: 8,
+            top: 0,
+            bottom: 0,
+          ),
+          Positioned(
+            child: Image.network(
+              roomData.corner_v6.right_img,
+              width: 8,
+              fit: BoxFit.fill,
+            ),
+            left: 78,
+            top: 0,
+            bottom: 0,
+          ),
+          Positioned(
+            child: Text(roomData.corner_v6.text,
+                style: GTTextStyle.regularTextStyle(
+                    color: Colors.white, fontSize: 13),
+                textAlign: TextAlign.center),
+            left: 8,
+            top: 0,
+            width: 70,
+            bottom: 0,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget hotWidget(text) {
